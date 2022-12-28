@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: books-database
+  data:
+    mongodb:
+      username: root
+      password: root
+      database: books
+      port: 27017
+      host: localhost
