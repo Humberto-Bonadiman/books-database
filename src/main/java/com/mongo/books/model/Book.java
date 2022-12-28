@@ -21,4 +21,18 @@ public class Book {
     private Integer numberPages;
     private String bookPublisher;
     private LocalDate publicationDate;
+
+    public Book (
+            String title,
+            List<String> authors,
+            Integer numberPages,
+            String bookPublisher,
+            LocalDate publicationDate
+    ) {
+        this.title = title;
+        this.authors = authors;
+        this.numberPages = numberPages;
+        this.bookPublisher = bookPublisher;
+        this.publicationDate = publicationDate;
+    }
 }
