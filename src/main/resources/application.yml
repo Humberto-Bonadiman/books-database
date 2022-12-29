@@ -5,8 +5,6 @@ spring:
     name: books-database
   data:
     mongodb:
-      username: root
-      password: root
       database: books
       port: 27017
       host: localhost

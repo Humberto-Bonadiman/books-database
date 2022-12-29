@@ -1,6 +1,8 @@
 package com.mongo.books.service;
 
 import com.mongo.books.dto.BookDto;
+import com.mongo.books.exception.message.BookNotRegisteredException;
+import com.mongo.books.exception.message.NotNullException;
 import com.mongo.books.model.Book;
 import com.mongo.books.repository.BooksRepository;
 import org.jetbrains.annotations.NotNull;
@@ -18,6 +20,7 @@ public class BooksService implements BooksInterface {
 
     @Override
     public Book create(BookDto bookDto) {
+        checkIfNull(bookDto);
         Book book = new Book(
                 bookDto.getTitle(),
                 bookDto.getAuthors(),
@@ -41,6 +44,7 @@ public class BooksService implements BooksInterface {
 
     @Override
     public Book update(String id, BookDto bookDto) {
+        checkIfNull(bookDto);
         Book updateBook = findBookById(id);
         updateBook.setTitle(bookDto.getTitle());
         updateBook.setAuthors(bookDto.getAuthors());
@@ -52,15 +56,25 @@ public class BooksService implements BooksInterface {
 
     @Override
     public void delete(String id) {
-        Book book = findBookById(id);
+        findBookById(id);
         booksRepository.deleteById(id);
     }
 
     private @NotNull Book findBookById(String id) {
         Optional<Book> validBook = booksRepository.findById(id);
         if (validBook.isEmpty()) {
-            System.out.println("Book not found!");
+            throw new BookNotRegisteredException();
         }
         return validBook.get();
+    }
+
+    private void checkIfNull(@NotNull BookDto bookDto) {
+        if (bookDto.getTitle() == null
+                || bookDto.getAuthors() == null
+                || bookDto.getAuthors().size() == 0
+                || bookDto.getNumberPages() == null
+        ) {
+            throw new NotNullException();
+        }
     }
 }

@@ -3,8 +3,10 @@ package com.mongo.books.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,7 +17,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Book {
     @Id
-    private String userId;
+    private String id;
+
     private String title;
     private List<String> authors;
     private Integer numberPages;
