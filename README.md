@@ -32,7 +32,7 @@ Após cada um dos passos, haverá um exemplo do comando a ser digitado para faze
 
 ## Comandos para utilizar o Docker
 
-Caso o MySQL esteja ativo em sua máquina é necessário realizar o comando:
+Caso o MongoDB esteja ativo em sua máquina é necessário realizar o comando:
 ```javascript
 sudo service mongod stop
 ```
@@ -62,7 +62,7 @@ docker-compose down
 
 ## Utilizando o Spring-boot sem o Docker
 
-Primeiramente, ative o MySQL:
+Primeiramente, ative o MongoDB:
 ```javascript
 sudo service mongod start
 ```
