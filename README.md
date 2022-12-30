@@ -1,5 +1,7 @@
 # Boas vindas ao repositório do projeto Books Database
 
+[![Continuos Integration with GitHub](https://github.com/Humberto-Bonadiman/books-database/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/Humberto-Bonadiman/books-database/actions/workflows/docker-publish.yml)
+
 ---
 
 ## Descrição do projeto
