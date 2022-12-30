@@ -34,6 +34,6 @@ jobs:
 
         - name: Build and push Docker images
           run: |
-            docker tag ${{ secrets.DOCKER_USERNAME }}/books-database:latest ${{ secrets.DOCKER_USERNAME }}/extrato-bancario:${{github.run_id}}
+            docker tag ${{ secrets.DOCKER_USERNAME }}/books-database:latest ${{ secrets.DOCKER_USERNAME }}/books-database:${{github.run_id}}
             docker push ${{ secrets.DOCKER_USERNAME }}/books-database:${{github.run_id}}
             docker push ${{ secrets.DOCKER_USERNAME }}/books-database:latest
